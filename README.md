@@ -21,7 +21,7 @@ gulp.task('build', function() {
 
 gulp-writ has no options.  It simply runs provided files through `writ`, configured for the language designated by each file's second-level extension, and it strips the primary (`.md`, `.markdown`, etc.) extension from the output file name.
 
-Errors will be omitted if you pass in an invalid filename or something that `writ` can't handle (like infinitely-recursive block definitions).  These errors will crash gulp, so you'll probably want to trap and log the errors (as shown in the example above), or do something more useful/interesting.
+Errors will be emitted if you pass in an invalid filename or something that `writ` can't handle (like infinitely-recursive block definitions).  These errors will crash gulp, so you'll probably want to trap and log the errors (as shown in the example above), or do something more useful/interesting.
 
 (In practice, you're much more likely to see errors from whatever you're passing writ's *output* to, than from writ itself.)
 
