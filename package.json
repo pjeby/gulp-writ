@@ -1,0 +1,36 @@
+{
+  "name": "gulp-writ",
+  "version": "1.0.0",
+  "description": "Any-language literate programming for gulp, using writ",
+  "repository": "git@github.com:pjeby/gulp-writ.git",
+  "homepage": "https://github.com/pjeby/gulp-writ",
+  "main": "gulp-writ.js",
+  "files": ["gulp-writ.js"],
+  "dependencies": {
+   "gulp-util": "^3.0.2",
+   "through2": "^0.6.3",
+   "writ": "https://github.com/pjeby/writ/tarball/patch-1"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.9.0",
+    "gulp": "^3.8.0",
+    "gulp-coffee": "^1.4.3",
+    "gulp-mocha": "^0.4.1",
+    "chai": "^1.9.1",
+    "mocha": "^1.18.2"
+  },
+  "scripts": {
+    "test": "gulp test",
+    "prepublish": "gulp build"
+  },
+  "keywords": [
+    "gulp",
+    "gulpplugin",
+    "literate programming",
+    "literate",
+    "markdown",
+    "writ"
+  ],
+  "author": "PJ Eby <pje@telecommunity.com>",
+  "license": "ISC"
+}
