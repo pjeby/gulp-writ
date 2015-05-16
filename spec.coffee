@@ -23,6 +23,14 @@ describe "gulp-writ", ->
           contents: new Buffer(fs.readFileSync(fpath))
         }
 
+    checkContents = (compiled, outPath, done) -> (f) ->
+        should.exist(f)
+        should.exist(f.contents)
+        should.exist(f.path)
+        f.path.should.equal(outPath)
+        String(f.contents).should.equal(compiled)
+        done.call(this)
+
     it "should compile the input and rename the file", (done) ->
         inPath = 'fixtures/demo.js.md'
         outPath = 'fixtures/demo.js'
@@ -30,11 +38,15 @@ describe "gulp-writ", ->
         compiled = writ.compile(String(contents), 'js')
         gulpwrit()
         .on 'error', done
-        .on 'data', (f) ->
-            should.exist(f)
-            should.exist(f.contents)
-            should.exist(f.path)
-            f.path.should.equal(outPath)
-            String(f.contents).should.equal(compiled)
-            done.call(this)
+        .on 'data', checkContents(compiled, outPath, done)
+        .write {isNull: (-> no), isStream: (-> no), path: inPath, contents}
+
+    it "should change the .litcoffee extension to .coffee", (done) ->
+        inPath = 'fixtures/demo.litcoffee'
+        outPath = 'fixtures/demo.coffee'
+        contents = '```\n"use strict"\n```'
+        compiled = writ.compile(contents, 'coffee')
+        gulpwrit()
+        .on 'error', done
+        .on 'data', checkContents(compiled, outPath, done)
         .write {isNull: (-> no), isStream: (-> no), path: inPath, contents}

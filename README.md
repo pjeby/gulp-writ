@@ -2,7 +2,7 @@
 
 This gulp plugin lets you use [writ](https://www.npmjs.com/package/writ) in your build process, to extract code blocks (of any language) from Markdown, and optionally rearrange them in true literate programming style.  (That is, you can define chunks of code in the order it most makes sense to *explain* them, and then automatically assemble them in the order that makes sense to *run* them.)
 
-Just name your source files `.js.md`, `.coffee.md`, or whatever other extension is suitable for your code.  Writ will look for the right kind of comment characters for that language, and `gulp-writ` will remove the `.md` part, leaving only your code.
+Just name your source files `.js.md`, `.coffee.md`, or whatever other extension is suitable for your code.  Writ will look for the right kind of comment characters for that language, and `gulp-writ` will remove the `.md` part, leaving only your code.  (As of version 1.1.0, you can also use `.litcoffee` as an extension without an added `.md`, and the output extension will be `.coffee`.)
 
 ## Usage
 

@@ -10,9 +10,9 @@ module.exports = -> require('through2').obj (file, enc, done) ->
         return done(new PluginError('gulp-writ', "Can't stream files"))
 
     try
-        # Remove the .md from the filename
+        # Remove the .md from the filename, or replace .litcoffee with .coffee
         parts = file.path.split('.')
-        parts.pop()
+        parts.push('coffee') if parts.pop() is 'litcoffee'
         file.path = parts.join('.')
 
         # Get the language from the remaining extension
